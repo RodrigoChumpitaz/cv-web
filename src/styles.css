@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.ng-tooltip{
+  font-size: 13px;
+  position: absolute;
+  border-radius: 5px;
+  padding: 9px;
+  background: #F3F4F6;
+  color: #000;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ng-tooltip-show{
+  opacity: 1;
+}
+
+.print-force-new-page {
+  page-break-before: always;
+}

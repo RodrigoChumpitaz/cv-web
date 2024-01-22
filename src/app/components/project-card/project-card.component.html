@@ -1,0 +1,29 @@
+<Card className="flex flex-col justify-between overflow-hidden border border-[#F3F4F6] p-3 h-full">
+    <CardHeader>
+        <div class="space-y-1">
+            <CardTitle className="text-base mb-2">
+                <ng-container *ngIf="link">
+                    <a 
+                        [href]="link"
+                        target="_blank"
+                        class="inline-flex items-center gap-1 hover:underline text-title"
+                    >   
+                        {{ title }}{{ " " }}
+                        <span class="size-1 rounded-full bg-green-500"></span>
+                    </a>
+                </ng-container>
+                <ng-container *ngIf="!link">{{ title }}</ng-container>
+            </CardTitle>
+            <CardDescription className="font-mono text-xs">
+                {{ description }}
+            </CardDescription>
+        </div>
+    </CardHeader>
+    <CardContent className="mt-auto">
+        <div class="mt-2 flex flex-wrap gap-1">
+            <Badge *ngFor="let tag of tags" className="px-1 py-0 text-[10px] bg-[#F8F8FA] text-title">
+                {{ tag }}
+            </Badge>
+        </div>
+    </CardContent>
+</Card>
