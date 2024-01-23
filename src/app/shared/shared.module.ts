@@ -8,6 +8,7 @@ import { CardDescriptionComponent } from './_card/card-description/card-descript
 import { CardContentComponent } from './_card/card-content/card-content.component';
 import { CardFooterComponent } from './_card/card-footer/card-footer.component';
 import { BadgeComponent } from './badge/badge.component';
+import { ToastComponent } from './toast/toast.component';
 
 
 
@@ -20,7 +21,8 @@ import { BadgeComponent } from './badge/badge.component';
     CardDescriptionComponent,
     CardContentComponent,
     CardFooterComponent,
-    BadgeComponent
+    BadgeComponent,
+    ToastComponent
   ],
   imports: [
     CommonModule
@@ -33,7 +35,8 @@ import { BadgeComponent } from './badge/badge.component';
     CardDescriptionComponent,
     CardContentComponent,
     CardFooterComponent,
-    BadgeComponent
+    BadgeComponent,
+    ToastComponent
   ]
 })
 export class SharedModule { }

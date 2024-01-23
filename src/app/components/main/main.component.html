@@ -1,5 +1,17 @@
+<ng-container>
+    <div *ngFor="let toast of valueFromClipboard; let i = index" class="mx-auto w-full mt-2 absolute z-50 flex justify-center align-middle animate-fade-down animate-ease-linear animate-duration-150"
+    [style.top.px]="(i * 40)"
+    >
+        <div *ngIf="toast.showToast">
+            <Toast >
+                {{ toast.message }} 
+            </Toast>       
+        </div>
+    </div>
+</ng-container>
 <main class="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
     <section class="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6">
+        
         <div class="flex items-center justify-between">
             <div class="flex-1 flex gap-2 flex-col">
                 <h1 class="font-bold text-xl text-title">{{RESUME_DATA['name']}}</h1>
@@ -15,23 +27,23 @@
                     </a>
                 </p>
                 <section class="flex gap-1">
-                    <contact-button >
-                        <a class="text-[13px]" [href]="RESUME_DATA['']" appTooltip="Github" placement="top" [delay]="2000">
+                    <contact-button>
+                        <a class="text-[13px]" (click)="copyValue(1)" appTooltip="Click here" placement="top" [delay]="2000">
                             <i class="fa-regular fa-envelope"></i>
                         </a>
                     </contact-button>
                     <contact-button>
-                        <a class="text-[13px]" [href]="RESUME_DATA['']" appTooltip="Chil cabro" placement="bottom" [delay]="3000">
+                        <a class="text-[13px]" (click)="copyValue(2)" appTooltip="Click here" placement="bottom" [delay]="3000">
                             <i class="fa-solid fa-phone"></i>
                         </a>
                     </contact-button>
                     <contact-button>
-                        <a class="text-[13px]" [href]="RESUME_DATA['']">
+                        <a class="text-[13px]" target="_blank" [href]="RESUME_DATA['contact'].social[0].url" >
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </contact-button>
                     <contact-button>
-                        <a class="text-[13px]" [href]="RESUME_DATA['']">
+                        <a class="text-[13px]" target="_blank" [href]="RESUME_DATA['contact'].social[1].url">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
                     </contact-button>
@@ -103,7 +115,7 @@
                 <ProjectCard *ngFor="let project of RESUME_DATA['projects']" 
                     [title]="project.title"
                     [description]="project.description"
-                    [link]="project.link"
+                    [link]="project.link.href"
                     [tags]="project.techStack"
                 ></ProjectCard>
             </div>
